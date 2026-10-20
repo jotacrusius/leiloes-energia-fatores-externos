@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatores Externos nos Leilões de Energia</title>
+<style>
+  :root {
+    --verde: #1e8e4e;
+    --verde-escuro: #14693a;
+    --verde-claro: #e8f5ed;
+    --azul: #1b6ca8;
+    --azul-escuro: #12507f;
+    --azul-claro: #e7f1f9;
+    --texto: #000;
+    --borda: #d5e3dc;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--texto);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  a { color: var(--azul); }
+  .faixa {
+    height: 8px;
+    background: linear-gradient(90deg, var(--verde) 0 50%, var(--azul) 50% 100%);
+  }
+  header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 20px 32px;
+  }
+  .selo {
+    display: inline-block;
+    color: var(--verde-escuro);
+    border: 1px solid var(--verde);
+    background: var(--verde-claro);
+    padding: 2px 12px;
+    font-size: 15px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin: 18px 0 14px;
+    color: var(--azul-escuro);
+  }
+  .subtitulo { font-size: 1.2rem; margin: 0; max-width: 720px; }
+  nav {
+    position: sticky; top: 0; z-index: 5;
+    background: #fff;
+    border-top: 1px solid var(--borda);
+    border-bottom: 2px solid var(--verde);
+  }
+  nav ul {
+    list-style: none; margin: 0 auto; padding: 0 20px;
+    max-width: 920px;
+    display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  nav a {
+    display: block; padding: 10px 0; font-size: 16px;
+    text-decoration: none; color: var(--azul-escuro);
+    border-bottom: 3px solid transparent;
+  }
+  nav a:hover { color: var(--verde-escuro); border-bottom-color: var(--verde); }
+  main { max-width: 920px; margin: 0 auto; padding: 8px 20px 60px; }
+  section { padding-top: 36px; }
+  h2 {
+    font-size: 1.75rem; margin: 0 0 12px;
+    color: var(--azul-escuro);
+    padding-left: 14px;
+    border-left: 6px solid var(--verde);
+  }
+  h3 { font-size: 1.25rem; margin: 26px 0 6px; color: var(--verde-escuro); }
+  p { margin: 0 0 14px; }
+  ul.lista { padding-left: 22px; margin: 0 0 14px; }
+  ul.lista li { margin-bottom: 6px; }
+  ul.lista li::marker { color: var(--verde); }
+  .destaque {
+    background: var(--azul-claro);
+    border-left: 5px solid var(--azul);
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+  .destaque.verde { background: var(--verde-claro); border-left-color: var(--verde); }
+  .destaque strong:first-child { color: var(--azul-escuro); }
+  .destaque.verde strong:first-child { color: var(--verde-escuro); }
+  .cards {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin: 18px 0;
+  }
+  .card {
+    border: 1px solid var(--borda);
+    border-top: 4px solid var(--verde);
+    padding: 14px 18px 6px;
+  }
+  .card:nth-child(even) { border-top-color: var(--azul); }
+  .card h3 { margin-top: 0; }
+  .tabela-wrap { overflow-x: auto; margin: 18px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 16px; min-width: 640px; }
+  th {
+    background: var(--azul-escuro); color: #fff;
+    text-align: left; padding: 10px 12px; font-weight: bold;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+  tr:nth-child(even) td { background: #f6fbf8; }
+  td:first-child { font-weight: bold; color: var(--verde-escuro); }
+  footer {
+    border-top: 2px solid var(--azul);
+    padding: 22px 20px 36px;
+    text-align: center; font-size: 15px;
+  }
+  footer p { max-width: 760px; margin: 0 auto 8px; }
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    h1 { font-size: 1.9rem; }
+    header { padding-top: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="faixa"></div>
+
+<header>
+  <span class="selo">Setor Elétrico Brasileiro</span>
+  <h1>Como fatores externos afetam os leilões de energia no Brasil</h1>
+  <p class="subtitulo">Uma leitura técnica sobre a influência da economia, do tipo de usina, do clima e de outras variáveis na compra e venda de energia dentro do arcabouço regulatório brasileiro.</p>
+</header>
+
+<nav aria-label="Seções">
+  <ul>
+    <li><a href="#contexto">Contexto</a></li>
+    <li><a href="#arcabouco">Arcabouço</a></li>
+    <li><a href="#economia">Economia</a></li>
+    <li><a href="#tecnologia">Tipo de usina</a></li>
+    <li><a href="#clima">Clima</a></li>
+    <li><a href="#combustiveis">Combustíveis</a></li>
+    <li><a href="#regulacao">Regulação</a></li>
+    <li><a href="#rede">Rede e meio ambiente</a></li>
+    <li><a href="#sintese">Síntese</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="contexto">
+  <h2>Para começar: o que é um leilão de energia e o que ele tem a ver com a sua conta de luz</h2>
+  <p>A energia que chega à sua casa não vai direto da usina à tomada. Ela é gerada por usinas (hidrelétricas, eólicas, solares, térmicas e outras), transportada por linhas de transmissão e entregue pela distribuidora da sua região, a empresa que envia a conta de luz.</p>
+  <p>A distribuidora precisa comprar essa energia antes de vendê-la a você. Para que a compra seja transparente e o preço o menor possível, grande parte dela é feita em <strong>leilões</strong> promovidos pelo governo: as distribuidoras informam quanta energia vão precisar, e os donos de usinas (ou de projetos de usinas) disputam entre si oferecendo o menor preço. Quem vence assina um contrato de longo prazo, com preço definido, para fornecer a energia.</p>
+  <div class="destaque verde">
+    <strong>Qual é a ligação com a sua conta?</strong> A conta de luz soma o custo da energia comprada, o uso das redes de transmissão e distribuição, encargos setoriais e tributos. O preço fechado nos leilões forma a parte do custo da energia comprada, que é uma das maiores parcelas da tarifa. Outros custos do sistema, como o acionamento de usinas mais caras em época de seca, chegam à conta por outros caminhos, como as bandeiras tarifárias e os encargos, e não pelo preço do leilão.
+  </div>
+  <p>Os leilões também servem para garantir que existam usinas suficientes no futuro, evitando falta de energia. Como a construção de uma usina depende de dinheiro, clima, combustíveis e regras do setor, esses fatores externos influenciam o resultado dos leilões e, no fim da cadeia, a conta que chega até você. É isso que o restante desta página explica.</p>
+</section>
+
+<section id="arcabouco">
+  <h2>1. O arcabouço: como o leilão funciona</h2>
+  <p>Para entender o efeito dos fatores externos, é preciso saber onde eles incidem. Desde a reforma de 2004 (Lei nº 10.848/2004 e Decreto nº 5.163/2004), o sistema opera com dois ambientes de contratação: o <strong>Ambiente de Contratação Regulada (ACR)</strong>, em que as distribuidoras compram energia para atender os consumidores cativos, e o <strong>Ambiente de Contratação Livre (ACL)</strong>, de negociação bilateral entre agentes. Os leilões de energia são o principal instrumento de contratação do ACR.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Quem faz o quê</h3>
+      <ul class="lista">
+        <li><strong>MME</strong>: define diretrizes de política, as condições de cada leilão e o preço-teto.</li>
+        <li><strong>EPE</strong>: faz a habilitação técnica dos projetos e calcula a garantia física de energia.</li>
+        <li><strong>ANEEL</strong>: regula e promove os leilões, e aprova editais e contratos.</li>
+        <li><strong>CCEE</strong>: realiza o leilão operacionalmente, registra os contratos, contabiliza e liquida as diferenças no mercado de curto prazo.</li>
+        <li><strong>ONS</strong>: opera o sistema e dá os pareceres de acesso à rede e as informações de despacho.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tipos de leilão</h3>
+      <ul class="lista">
+        <li><strong>Energia nova</strong> (A-4, A-5, A-6 e similares): contratam usinas ainda não construídas. O "A-n" indica que a entrega começa <em>n</em> anos depois do leilão.</li>
+        <li><strong>Energia existente</strong> (A-1 e similares): usinas já em operação, para repor contratos que vencem.</li>
+        <li><strong>Leilões de reserva</strong> (energia e capacidade): contratam segurança ao sistema. Seu custo é rateado por encargos pagos pelos consumidores, e não é um contrato de uma distribuidora específica.</li>
+        <li><strong>Leilões de transmissão</strong>: são outro processo, no qual vence quem aceita a menor receita anual para construir e operar a linha.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Mecânica de preço e produto contratado</h3>
+  <p>As distribuidoras declaram ao MME a demanda que querem contratar. O MME fixa o preço-teto, e a disputa é, em regra, de preço decrescente. O formato das rodadas e etapas é definido no edital de cada certame. Os contratos resultantes, os CCEARs, têm prazos longos, normalmente entre 15 e 30 anos conforme a fonte, e servem de garantia para o financiamento do projeto.</p>
+  <p>O critério de vitória depende do produto. Em contratos <strong>por quantidade</strong>, compara-se o preço da energia (R$/MWh). Em contratos <strong>por disponibilidade</strong>, usados principalmente para térmicas, compara-se o <strong>Índice de Custo Benefício (ICB)</strong>, que soma a receita fixa pedida pelo gerador e a estimativa do custo esperado de operação e de exposição ao curto prazo. Por isso, o custo do combustível pesa na classificação da térmica mesmo que ela não seja o fator de maior receita.</p>
+
+  <div class="destaque">
+    <strong>Dois lados do leilão.</strong> Fatores externos afetam a <strong>demanda</strong> (quanto as distribuidoras declaram precisar e quanto o governo decide contratar) e a <strong>oferta</strong> (quanto custa e quão arriscado é gerar a partir de cada fonte).
+  </div>
+</section>
+
+<section id="economia">
+  <h2>2. Fatores econômicos</h2>
+
+  <h3>Crescimento econômico e consumo de energia</h3>
+  <p>O consumo de eletricidade acompanha a atividade industrial, o comércio e a renda das famílias. As distribuidoras declaram suas necessidades com base em projeções de mercado. Se a economia cresce menos que o previsto, elas ficam <strong>sobrecontratadas</strong>; se cresce mais, ficam <strong>subcontratadas</strong> e expostas ao preço de curto prazo (PLD).</p>
+  <p>A regulação trata esse risco com regras próprias. O repasse integral às tarifas é admitido até 105% da carga da distribuidora (art. 38 do Decreto nº 5.163/2004, na redação do Decreto nº 7.945/2013); acima disso, a sobra é, em regra, risco dela, salvo hipóteses de sobrecontratação involuntária, como a migração de consumidores ao mercado livre ou fatores fora do seu controle. Há ainda mecanismos de ajuste, como o Mecanismo de Compensação de Sobras e Déficits (MCSD), que permite a redistribuição de contratos entre distribuidoras, e a possibilidade de a distribuidora reduzir contratos de energia existente em até 4% do montante inicial por ano, por variações de mercado (art. 29 do Decreto nº 5.163/2004).</p>
+
+  <h3>Migração para o mercado livre</h3>
+  <p>A abertura do mercado livre retira carga do ACR. Ela foi ampliada em 2024 para todos os consumidores de alta tensão (Grupo A), e a Lei nº 15.269/2025 prevê a extensão do direito de migração à indústria e ao comércio em até 24 meses e aos demais consumidores, residenciais incluídos, em até 36 meses, com parte do detalhamento ainda dependente de regulamentação. Cada migração reduz a demanda das distribuidoras e pode deixar contratos antigos sem consumo equivalente, o que gera sobrecontratação e distribui o custo desses contratos entre os consumidores que permanecem no mercado regulado. Esse efeito dificulta o planejamento da declaração de demanda e desloca parte da expansão da geração para contratos bilaterais, que dependem do apetite de comercializadores e de grandes consumidores, e não de leilões.</p>
+
+  <h3>Juros, custo de capital e financiamento</h3>
+  <p>Usinas são intensivas em capital, com receitas distribuídas por décadas. Taxas de juros elevadas aumentam o retorno exigido e o custo da dívida e, para a mesma receita, forçam lances mais altos ou fazem o investidor desistir. Linhas de financiamento de longo prazo, o prazo do contrato e a qualidade de crédito do comprador (distribuidoras e garantias) influenciam o custo final. Por isso, o mesmo projeto pode ser competitivo em um ciclo de juros baixos e inviável em outro.</p>
+
+  <h3>Câmbio e cadeia de suprimentos</h3>
+  <p>Painéis fotovoltaicos, aerogeradores, inversores, baterias e turbinas a gás têm forte componente importado ou cotado em moeda estrangeira. A variação cambial e dos preços de commodities (aço, cobre, alumínio, silício) altera o investimento inicial. A receita do contrato é em reais, então o descasamento de moeda precisa ser embutido no lance ou protegido por instrumentos financeiros.</p>
+
+  <h3>Inflação e reajuste contratual</h3>
+  <p>Os CCEARs são, em regra, reajustados anualmente por índice de preços, em geral o IPCA, o que protege a receita real do gerador. Nos contratos por disponibilidade, o custo variável do combustível é atualizado por indexadores próprios. A inflação, portanto, é repassada às tarifas dos consumidores e entra na análise de modicidade tarifária que orienta a fixação do preço-teto.</p>
+</section>
+
+<section id="tecnologia">
+  <h2>3. O tipo de usina muda o risco e a forma de contratar</h2>
+  <p>O regulamento distingue como cada fonte é contratada, e isso determina <strong>quem absorve o risco</strong>: o gerador ou o consumidor. Por isso, o mesmo fator externo atinge cada tecnologia de maneira diferente. A modalidade exata de cada fonte é definida no edital de cada certame, e a tabela abaixo mostra o padrão geral.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead>
+        <tr><th>Fonte</th><th>Modalidade típica</th><th>Principal exposição externa</th><th>Quem absorve o risco</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hidrelétrica</td>
+          <td>Por quantidade</td>
+          <td>Hidrologia (geração abaixo da garantia física), licenciamento e prazos de obra</td>
+          <td>Gerador, com o risco hidrológico compartilhado entre as usinas no Mecanismo de Realocação de Energia (MRE)</td>
+        </tr>
+        <tr>
+          <td>Eólica</td>
+          <td>Por quantidade ou por disponibilidade, conforme o edital</td>
+          <td>Regime de ventos, câmbio de equipamentos, atrasos na rede e cortes de geração</td>
+          <td>Principalmente o gerador; fora do MRE</td>
+        </tr>
+        <tr>
+          <td>Solar fotovoltaica</td>
+          <td>Por quantidade ou por disponibilidade, conforme o edital</td>
+          <td>Irradiação, câmbio e preço dos módulos, restrições de escoamento e cortes de geração</td>
+          <td>Principalmente o gerador; fora do MRE</td>
+        </tr>
+        <tr>
+          <td>Termelétrica a gás ou outros combustíveis</td>
+          <td>Por disponibilidade</td>
+          <td>Preço e oferta do combustível, logística e infraestrutura de gás</td>
+          <td>O custo variável do despacho é pago pela distribuidora e repassado ao consumidor; o gerador responde pela indisponibilidade da usina</td>
+        </tr>
+        <tr>
+          <td>Biomassa</td>
+          <td>Por quantidade ou por disponibilidade</td>
+          <td>Safra, preço e disponibilidade do insumo (bagaço, resíduos) e sazonalidade</td>
+          <td>Gerador, com sazonalidade tratada em contrato</td>
+        </tr>
+        <tr>
+          <td>Capacidade (térmicas, hidrelétricas, armazenamento)</td>
+          <td>Leilão de reserva de capacidade em potência (arts. 3º e 3º-A da Lei nº 10.848/2004; Decreto nº 10.707/2021)</td>
+          <td>Câmbio, regras de remuneração, regras de despacho e disponibilidade na ponta</td>
+          <td>Consumidores do sistema, via encargo, em troca de potência disponível quando o sistema precisa</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Contrato por quantidade</h3>
+  <p>O gerador se compromete a entregar um volume de energia ao longo do tempo e assume o risco de produzir mais ou menos que o previsto. A diferença é liquidada no mercado de curto prazo ao PLD. Nesse caso, a seca ou a falta de vento viram risco financeiro do gerador, com bandas de flexibilidade previstas em contrato.</p>
+
+  <h3>Contrato por disponibilidade</h3>
+  <p>O gerador recebe uma receita fixa por manter a usina disponível, e o operador decide se ela será despachada. Quando há despacho, o custo variável (combustível) é pago pela distribuidora e repassado ao consumidor. O risco de preço do combustível fica, assim, com o sistema, e não com o gerador. Por isso o gerador precifica o lance de forma muito diferente: o que pesa para ele é a disponibilidade e a receita fixa, e não o preço do gás.</p>
+
+  <div class="destaque verde">
+    <strong>Complementaridade.</strong> Fontes com perfis diferentes se equilibram. No Nordeste, o vento é mais intenso justamente no período seco, quando a vazão de rios importantes é menor. A solar produz de dia, e térmicas, hidrelétricas com reservatório e armazenamento cobrem o fim da tarde e a noite. Por isso, os leilões passaram a contratar atributos distintos (energia, potência, flexibilidade) em vez de dispor tudo na mesma disputa de menor preço de energia.
+  </div>
+</section>
+
+<section id="clima">
+  <h2>4. Eventos climáticos e hidrologia</h2>
+  <p>A matriz brasileira é predominantemente renovável, com forte presença hidráulica, o que torna o sistema sensível ao clima. É preciso separar, porém, dois horizontes. Um leilão de energia nova contrata entrega para daqui a alguns anos, e o lance é formado com base em séries históricas e expectativas de longo prazo. Um evento climático pontual não define diretamente o preço desse leilão. Ele afeta o <strong>curto prazo</strong> (PLD, despacho, resultado financeiro dos geradores e das distribuidoras) e <strong>muda a percepção de risco e a pressão política</strong>, o que altera a quantidade e o desenho dos leilões seguintes.</p>
+
+  <h3>Regime de chuvas e reservatórios</h3>
+  <p>Períodos secos reduzem as afluências e os reservatórios. O ONS passa a despachar mais térmicas para preservar a água, e o Custo Marginal de Operação (CMO) sobe. O PLD, calculado a partir do CMO e limitado por piso e teto regulatórios, também sobe. Isso encarece a exposição das distribuidoras subcontratadas, aumenta o custo repassado ao consumidor por meio das bandeiras tarifárias (para cobrir o despacho térmico) e mostra o valor de ter energia contratada previamente.</p>
+
+  <h3>Fenômenos como El Niño e La Niña</h3>
+  <p>Esses fenômenos alteram a distribuição de chuvas no país. De forma geral, o El Niño tende a favorecer chuvas acima da média no Sul e a reduzi-las em parte do Norte e do Nordeste, enquanto a La Niña tende a produzir o efeito contrário, mas o padrão varia de evento para evento e entre as regiões. Eles influenciam a hidrologia, podem alterar o regime de ventos em parte do Nordeste e entram nos cenários de despacho térmico e de risco que orientam a política de contratação.</p>
+
+  <h3>Risco hidrológico e o MRE</h3>
+  <p>O MRE compartilha o risco de geração entre as hidrelétricas participantes: quem gera menos que a sua garantia física recebe energia de quem gera mais. Quando a geração total do conjunto fica abaixo da soma das garantias físicas, o fator de ajuste (GSF) fica abaixo de 1 e todos os participantes precisam cobrir a diferença no curto prazo. O MRE não abrange eólicas e solares. As perdas acumuladas do GSF geraram disputas judiciais, e a Lei nº 14.052/2020 estabeleceu compensação pelas perdas decorrentes de riscos não hidrológicos, com extensão do prazo de concessão. Esse histórico é analisado por investidores como risco regulatório associado ao risco climático.</p>
+
+  <h3>Vento e sol</h3>
+  <p>A garantia física de eólicas e solares, certificada pela EPE com base em séries de vento e irradiação, define o lastro vendável. Eventos extremos e mudanças climáticas de longo prazo alteram a produção esperada, os custos de operação e seguro e a confiabilidade das séries usadas na certificação.</p>
+  <p>Há ainda o corte de geração (<em>curtailment</em>): o ONS pode restringir a geração de eólicas e solares por indisponibilidade externa da rede, por razão energética (excesso de oferta frente à carga) ou por confiabilidade elétrica. Pela regulamentação da ANEEL (Resolução Normativa nº 1.030/2022, alterada depois), apenas os cortes por indisponibilidade externa geram compensação, e ainda sujeitos a uma franquia de horas. O tema está em disputa judicial e em revisão: a Lei nº 15.269/2025 tratou do ressarcimento de cortes já ocorridos, vetou a regra para cortes futuros, e a ANEEL suspendeu temporariamente o ressarcimento enquanto aguarda nova regulamentação. Essa incerteza é um risco real no cálculo do lance.</p>
+
+  <h3>Ondas de calor e demanda de ponta</h3>
+  <p>Temperaturas altas elevam o uso de ar-condicionado e a demanda no fim da tarde e início da noite. Essa pressão sobre a <strong>ponta</strong> é um dos argumentos para os leilões de capacidade: o sistema precisa de potência disponível naquele momento, não só de energia ao longo do ano.</p>
+</section>
+
+<section id="combustiveis">
+  <h2>5. Combustíveis, infraestrutura e cenário internacional</h2>
+  <p>Térmicas a gás natural, óleo ou carvão dependem de preços internacionais, da logística de importação e das condições de oferta. Conflitos geopolíticos, variações do preço do petróleo e do gás natural liquefeito (GNL) e restrições de transporte alteram o custo e a disponibilidade desses combustíveis.</p>
+  <ul class="lista">
+    <li>Nos contratos por disponibilidade, o <strong>custo variável unitário (CVU)</strong> declarado e seu reajuste definem o impacto para o consumidor quando a usina é despachada, e entram no cálculo do ICB que classifica a térmica no leilão.</li>
+    <li>Contratos de fornecimento de gás com cláusulas de retirada mínima (<em>take-or-pay</em>) e a parcela de geração inflexível influenciam o quanto a usina gera mesmo quando a água é abundante.</li>
+    <li>A existência de gasodutos, terminais de regaseificação e escoamento do gás do pré-sal determina em que regiões uma térmica a gás é viável e a que custo.</li>
+    <li>A localização da térmica em relação à carga e à rede afeta o custo de conexão e a necessidade de reforços.</li>
+  </ul>
+  <p>O cenário internacional também influencia a cadeia de suprimentos de renováveis e de armazenamento: disponibilidade de painéis, baterias e componentes, tarifas de importação e políticas industriais de outros países.</p>
+</section>
+
+<section id="regulacao">
+  <h2>6. Política, regulação e segurança jurídica</h2>
+  <p>Os leilões são instrumentos de política pública, e seu desenho depende de decisões do governo. Alguns pontos mudam o comportamento dos participantes:</p>
+  <ul class="lista">
+    <li><strong>Diretrizes e preço-teto:</strong> um teto baixo afasta projetos com custo maior e pode deixar demanda sem contratar; um teto alto aumenta o risco de tarifas mais elevadas. O equilíbrio é definido em portaria do MME para cada certame.</li>
+    <li><strong>Mudanças de regras:</strong> alterações em regimes de risco, encargos, cálculo de garantia física ou regras de corte de geração aumentam o prêmio de risco exigido pelos investidores.</li>
+    <li><strong>Incentivos setoriais e fiscais:</strong> descontos nas tarifas de uso do sistema (TUST/TUSD) para fontes incentivadas, que a Lei nº 14.120/2021 extinguiu de forma gradual, mantendo-os apenas para projetos que cumpriram prazos de outorga e de entrada em operação (prorrogáveis nos termos da MP nº 1.212/2024), e regimes como o REIDI (infraestrutura) alteram a competitividade entre fontes.</li>
+    <li><strong>Encargos e subsídios na tarifa:</strong> os custos de políticas setoriais pagos pelo consumidor, como os da Conta de Desenvolvimento Energético (CDE), influenciam a percepção de modicidade tarifária e a disposição política de contratar mais.</li>
+    <li><strong>Reformas do setor:</strong> a Lei nº 15.269/2025 (abertura gradual do mercado livre, novas regras de encargos e de reserva de capacidade para geradores que acessam a rede) e sua regulamentação mudam o papel dos leilões ao longo do tempo.</li>
+  </ul>
+  <div class="destaque">
+    <strong>Segurança jurídica.</strong> Contratos de longo prazo só são financiáveis se o investidor confia que as regras não serão alteradas de forma desfavorável. A instabilidade regulatória tem efeito semelhante a um aumento de juros: eleva o lance mínimo viável.
+  </div>
+</section>
+
+<section id="rede">
+  <h2>7. Rede de transmissão e licenciamento ambiental</h2>
+  <h3>Transmissão e conexão</h3>
+  <p>Uma usina só entrega a energia contratada se houver rede para escoá-la. A disponibilidade de margem de escoamento nos pontos de conexão, o cronograma de novas linhas (licitadas em leilões próprios de transmissão) e os encargos de uso do sistema (TUST e TUSD) influenciam onde os projetos podem ser ofertados e quanto custam. O acesso à rede é verificado antes do leilão, por meio de parecer de acesso do ONS ou da distribuidora, e um projeto sem acesso viável não é habilitado.</p>
+  <p>Um atraso da rede após o leilão pode deixar a usina pronta sem poder gerar. A regulação prevê hipóteses de excludente de responsabilidade e de ressarcimento, mas elas são específicas e controversas, e o gerador carrega parte do risco financeiro.</p>
+
+  <h3>Licenciamento ambiental e social</h3>
+  <p>Para se habilitar tecnicamente na EPE, o projeto precisa apresentar licença ambiental compatível com a etapa do certame (em geral a licença prévia) e, no caso de hidrelétricas, a declaração de reserva de disponibilidade hídrica. Questões como comunidades afetadas, áreas protegidas, uso de recursos hídricos e supressão de vegetação podem atrasar ou inviabilizar empreendimentos. Atrasos na entrada em operação geram multas, execução de garantias e, no limite, rescisão do contrato, e esse risco é incorporado ao lance.</p>
+
+  <h3>Questões fundiárias e sociais</h3>
+  <p>A disponibilidade e o custo de terras, os acordos com proprietários e a relação com comunidades locais afetam principalmente parques eólicos e solares, que ocupam áreas extensas.</p>
+</section>
+
+<section id="sintese">
+  <h2>8. Síntese: como tudo se conecta</h2>
+  <p>Os fatores acima raramente atuam sozinhos. Uma seca prolongada, por exemplo, eleva o despacho térmico, pressiona o PLD, aumenta a exposição das distribuidoras subcontratadas, reforça o argumento político por mais contratação e mexe nas bandeiras tarifárias, enquanto juros e câmbio decidem se os novos projetos conseguem ser financiados.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead>
+        <tr><th>Fator externo</th><th>Canal de impacto</th><th>Efeito no leilão</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Crescimento econômico</td><td>Carga das distribuidoras</td><td>Altera o volume declarado e o risco de sobre ou subcontratação</td></tr>
+        <tr><td>Migração ao mercado livre</td><td>Redução da carga regulada</td><td>Menor demanda declarada no ACR e risco de sobrecontratação involuntária</td></tr>
+        <tr><td>Juros</td><td>Custo de capital e da dívida</td><td>Eleva o lance mínimo viável e reduz a participação</td></tr>
+        <tr><td>Câmbio e commodities</td><td>Investimento em equipamentos</td><td>Muda o custo do projeto e a competitividade entre fontes</td></tr>
+        <tr><td>Hidrologia</td><td>Despacho, PLD, GSF e bandeiras</td><td>Afeta o resultado financeiro dos contratos e a pressão por contratar; não define diretamente o preço dos leilões de entrega futura</td></tr>
+        <tr><td>Vento e irradiação</td><td>Garantia física e produção esperada</td><td>Define o lastro vendável e o risco de geração</td></tr>
+        <tr><td>Combustíveis</td><td>CVU e logística</td><td>Define a classificação (ICB) da térmica e o impacto tarifário</td></tr>
+        <tr><td>Regulação e política</td><td>Regras, teto e incentivos</td><td>Muda o desenho do certame e o prêmio de risco</td></tr>
+        <tr><td>Rede e licenças</td><td>Prazo e viabilidade física</td><td>Condiciona habilitação, localização e cumprimento do contrato</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Em resumo, o leilão brasileiro transforma incertezas externas em preços e contratos. A forma como a regulação distribui esses riscos entre geradores, distribuidoras e consumidores determina quem paga a conta de cada evento e, em última instância, qual energia será construída.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Conteúdo de caráter educacional e conceitual. As normas do setor elétrico mudam com frequência e cada leilão tem regras próprias definidas em edital; para decisões técnicas, comerciais ou jurídicas, consulte a legislação vigente e os documentos publicados pela ANEEL, MME, EPE e CCEE.</p>
+</footer>
+<div class="faixa"></div>
+</body>
+</html>
