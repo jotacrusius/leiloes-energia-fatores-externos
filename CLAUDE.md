@@ -1,4 +1,6 @@
 # CLAUDE.md
+A single static web page, `index.html`, explaining in Brazilian Portuguese (pt-BR) how external factors (economy, plant type, climate, fuels, regulation, grid and environmental licensing) affect electricity auctions (leilões de energia) in Brazil's regulated market.
+
 There is no build system, package manager, linter or test suite. All CSS is inline in a `<style>` block and the page uses no JavaScript. To preview, open `index.html` in a browser.
 
 ## Content conventions
